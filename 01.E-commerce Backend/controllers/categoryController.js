@@ -19,6 +19,25 @@ const createCategory = async (req, res) => {
   }
 };
 
+// get all categories
+const getAllCategories = async (req, res) => {
+  try {
+    const categories = await Category.find();
+    if (!categories) {
+      return res.status(400).json({
+        message: "Categories not found",
+      });
+    }
+    res.status(200).json({
+      message: "Categories found successfully",
+      categories,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createCategory,
+  getAllCategories,
 };
