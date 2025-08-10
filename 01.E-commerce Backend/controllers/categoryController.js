@@ -37,7 +37,27 @@ const getAllCategories = async (req, res) => {
   }
 };
 
+// get a category by id
+const getCategoryById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const category = await Category.findById(id);
+    if (!category) {
+      return res.status(400).json({
+        message: "Category not found",
+      });
+    }
+    res.status(200).json({
+      message: "Category found successfully",
+      category,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createCategory,
   getAllCategories,
+  getCategoryById,
 };

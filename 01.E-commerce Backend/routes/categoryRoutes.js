@@ -3,6 +3,7 @@ const isAdmin = require("../middlewares/isAdmin");
 const {
   createCategory,
   getAllCategories,
+  getCategoryById,
 } = require("../controllers/categoryController");
 
 const categoryRouter = express.Router();
