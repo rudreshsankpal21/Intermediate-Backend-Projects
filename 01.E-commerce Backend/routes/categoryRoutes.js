@@ -5,6 +5,7 @@ const {
   getAllCategories,
   getCategoryById,
   updateCategoryById,
+  deleteCategoryById,
 } = require("../controllers/categoryController");
 
 const categoryRouter = express.Router();
