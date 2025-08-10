@@ -56,8 +56,35 @@ const getCategoryById = async (req, res) => {
   }
 };
 
+// update category by id
+const updateCategoryById = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  try {
+    const category = await Category.findByIdAndUpdate(
+      id,
+      { name },
+      { new: true }
+    );
+    if (!category) {
+      return res.status(400).json({
+        message: "Category not found",
+      });
+    }
+    res.status(200).json({
+      message: "Category updated successfully",
+      category,
+    });
+
+    await category.save();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createCategory,
   getAllCategories,
   getCategoryById,
+  updateCategoryById,
 };
