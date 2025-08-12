@@ -4,7 +4,7 @@ const { createProduct } = require("../controllers/productController");
 const productRouter = express.Router();
 
 // create product
-productRouter.post("/", isAdmin, createProduct);
+productRouter.post("/", isAdmin, createProduct); // ✅
 
 // get all products
 productRouter.get("/", getAllProducts);
