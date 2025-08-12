@@ -23,10 +23,11 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    images: {
-      type: Array,
-      required: true,
-    },
+    //**TO BE ADDED */
+    // images: {
+    //   type: Array,
+    //   required: true,
+    // },
   },
   { timestamps: true }
 );
