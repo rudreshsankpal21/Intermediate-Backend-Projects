@@ -1,13 +1,16 @@
 const express = require("express");
 const isAdmin = require("../middlewares/isAdmin");
-const { createProduct } = require("../controllers/productController");
+const {
+  createProduct,
+  getAllProducts,
+} = require("../controllers/productController");
 const productRouter = express.Router();
 
 // create product
 productRouter.post("/", isAdmin, createProduct); // ✅
 
 // get all products
-productRouter.get("/", getAllProducts);
+productRouter.get("/", getAllProducts); // ✅
 
 // get product by id
 productRouter.get("/:id", getProductById);
