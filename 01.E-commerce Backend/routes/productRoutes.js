@@ -3,6 +3,7 @@ const isAdmin = require("../middlewares/isAdmin");
 const {
   createProduct,
   getAllProducts,
+  getProductById,
 } = require("../controllers/productController");
 const productRouter = express.Router();
 
@@ -13,7 +14,7 @@ productRouter.post("/", isAdmin, createProduct); // ✅
 productRouter.get("/", getAllProducts); // ✅
 
 // get product by id
-productRouter.get("/:id", getProductById);
+productRouter.get("/:id", getProductById); // ✅
 
 // update product by id
 productRouter.put("/:id", isAdmin, updateProductById);

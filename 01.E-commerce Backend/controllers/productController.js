@@ -22,7 +22,7 @@ const createProduct = async (req, res) => {
       product,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -40,11 +40,31 @@ const getAllProducts = async (req, res) => {
       products,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// get a product by ID
+const getProductById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await product.findById(id);
+    if (!product) {
+      return res.status(400).json({
+        message: "Product not found",
+      });
+    }
+    res.status(200).json({
+      message: "Product found successfully",
+      product,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
   }
 };
 
 module.exports = {
   createProduct,
   getAllProducts,
+  getProductById,
 };
