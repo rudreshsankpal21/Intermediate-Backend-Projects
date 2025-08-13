@@ -27,20 +27,39 @@ const createProduct = async (req, res) => {
 };
 
 // get all products
-const getAllProducts = async (req, res) => {
+
+export const getAllProducts = async (req, res) => {
   try {
-    const products = await product.find();
-    if (!product) {
-      return res.status(400).json({
-        message: "Products not found",
-      });
-    }
+    const { page = 1, limit = 10, search = "" } = req.query;
+
+    // Search filter
+    const searchFilter = search
+      ? {
+          $or: [
+            { name: { $regex: search, $options: "i" } },
+            { description: { $regex: search, $options: "i" } },
+          ],
+        }
+      : {};
+
+    // Pagination logic
+    const skip = (page - 1) * limit;
+
+    const products = await Product.find(searchFilter)
+      .skip(skip)
+      .limit(parseInt(limit))
+      .exec();
+
+    const total = await Product.countDocuments(searchFilter);
+
     res.status(200).json({
-      message: "Products found successfully",
+      total,
+      page: parseInt(page),
+      totalPages: Math.ceil(total / limit),
       products,
     });
   } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
