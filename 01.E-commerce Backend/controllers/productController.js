@@ -28,7 +28,7 @@ const createProduct = async (req, res) => {
 
 // get all products
 
-export const getAllProducts = async (req, res) => {
+const getAllProducts = async (req, res) => {
   try {
     const { page = 1, limit = 10, search = "" } = req.query;
 
