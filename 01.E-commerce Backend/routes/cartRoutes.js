@@ -1,6 +1,10 @@
 const express = require("express");
 const cartRouter = express.Router();
-const { addToCart, updateCart } = require("../controllers/cartController");
+const {
+  addToCart,
+  updateCart,
+  removeFromCart,
+} = require("../controllers/cartController");
 
 // add to cart
 cartRouter.post("/", addToCart); // ✅
@@ -9,7 +13,7 @@ cartRouter.post("/", addToCart); // ✅
 cartRouter.put("/", updateCart); // ✅
 
 // // remove from cart
-// cartRouter.delete("/", removeFromCart);
+cartRouter.delete("/", removeFromCart); // ✅
 
 // // get User cart
 // cartRouter.get("/:id", getUserCart);

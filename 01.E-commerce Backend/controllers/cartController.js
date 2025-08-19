@@ -52,4 +52,24 @@ const updateCart = async (req, res) => {
   }
 };
 
-module.exports = { addToCart, updateCart };
+// Remove from cart
+const removeFromCart = async (req, res) => {
+  const { productId } = req.body;
+  try {
+    const cart = await Cart.findOne({ user: req.user._id });
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    cart.items = cart.items.filter((item) => !item.product.equals(product._id));
+    await cart.save();
+    res.status(200).json({ message: "Product removed from cart successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+module.exports = { addToCart, updateCart, removeFromCart };
