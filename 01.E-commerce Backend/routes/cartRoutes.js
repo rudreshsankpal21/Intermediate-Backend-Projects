@@ -14,10 +14,10 @@ const isAdmin = require("../middlewares/isAdmin");
 cartRouter.post("/", addToCart);
 
 // update Quantity
-cartRouter.put("/", updateCart);
+cartRouter.put("/:id", updateCart);
 
 // remove from cart
-cartRouter.delete("/", removeFromCart);
+cartRouter.delete("/:id", removeFromCart);
 
 // get User cart
 cartRouter.get("/:id", getUserCart);
