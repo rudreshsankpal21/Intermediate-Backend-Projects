@@ -101,10 +101,24 @@ const getAllOrders = async (req, res) => {
   }
 };
 
+// clear cart
+const clearCart = async (req, res) => {
+  try {
+    const cart = await Cart.findOneAndDelete({ user: req.user._id });
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+    res.status(200).json({ message: "Cart cleared successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 module.exports = {
   addToCart,
   updateCart,
   removeFromCart,
   getUserCart,
   getAllOrders,
+  clearCart,
 };

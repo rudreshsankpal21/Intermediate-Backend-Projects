@@ -6,25 +6,26 @@ const {
   removeFromCart,
   getUserCart,
   getAllOrders,
+  clearCart,
 } = require("../controllers/cartController");
 const isAdmin = require("../middlewares/isAdmin");
 
 // add to cart
-cartRouter.post("/", addToCart); // ✅
+cartRouter.post("/", addToCart);
 
 // update Quantity
-cartRouter.put("/", updateCart); // ✅
+cartRouter.put("/", updateCart);
 
 // remove from cart
-cartRouter.delete("/", removeFromCart); // ✅
+cartRouter.delete("/", removeFromCart);
 
 // get User cart
-cartRouter.get("/:id", getUserCart); // ✅
+cartRouter.get("/:id", getUserCart);
 
 // get all orders
-cartRouter.get("/", isAdmin, getAllOrders); // ✅
+cartRouter.get("/", isAdmin, getAllOrders);
 
 // clear cart
-// cartRouter.delete("/clear/:id", clearCart);
+cartRouter.delete("/clear/:id", clearCart);
 
 module.exports = cartRouter;
