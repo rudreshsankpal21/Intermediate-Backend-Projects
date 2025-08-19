@@ -86,4 +86,25 @@ const getUserCart = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-module.exports = { addToCart, updateCart, removeFromCart, getUserCart };
+
+// get all orders
+const getAllOrders = async (req, res) => {
+  try {
+    const orders = await Cart.find();
+    if (!orders) {
+      return res.status(404).json({ message: "Orders not found" });
+    }
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = {
+  addToCart,
+  updateCart,
+  removeFromCart,
+  getUserCart,
+  getAllOrders,
+};
