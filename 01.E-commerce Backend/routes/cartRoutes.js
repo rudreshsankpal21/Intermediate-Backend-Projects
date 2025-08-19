@@ -1,12 +1,12 @@
 const express = require("express");
 const cartRouter = express.Router();
-const { addToCart } = require("../controllers/cartController");
+const { addToCart, updateCart } = require("../controllers/cartController");
 
 // add to cart
 cartRouter.post("/", addToCart); // ✅
 
 // update Quantity
-// cartRouter.put("/", updateCart);
+cartRouter.put("/", updateCart); // ✅
 
 // // remove from cart
 // cartRouter.delete("/", removeFromCart);
