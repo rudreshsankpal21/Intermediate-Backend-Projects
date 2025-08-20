@@ -22,6 +22,6 @@ productRouter.get("/:id", getProductById); // ✅
 productRouter.put("/:id", isAdmin, updateProductById); // ✅
 
 // delete product by id
-productRouter.delete("/:id", isAdmin, deleteProductById); // ✅s
+productRouter.delete("/:id", isAdmin, deleteProductById); // ✅
 
 module.exports = productRouter;
