@@ -1,0 +1,12 @@
+TO-DO Projects => 
+1. Event Management System 🎤
+2. Learning Management System (LMS) 📚
+3. Hospital Management API 🏥
+4. Food Delivery Backend 🍴
+5. Chat Application Backend (with Socket.io) 💬
+6. Job Portal API 💼
+7. Online Exam System 📝
+8. Travel Booking System ✈️
+9. Inventory & Billing System 📦
+10. Real-time Notification Service 🔔
+11. SaaS Subscription & Payment System 💳
