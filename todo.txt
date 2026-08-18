@@ -7,6 +7,75 @@ TO-DO Projects =>
 6. Job Portal API 💼
 7. Online Exam System 📝
 8. Travel Booking System ✈️
-9. Inventory & Billing System 📦
+9. Inventory & Billing System 📦 (Working)
 10. Real-time Notification Service 🔔
 11. SaaS Subscription & Payment System 💳
+
+
+
+
+9. INVENTRA - A Inventory & Billing System 📦 (Working)
+
+🗺️ Project Flow
+
+Phase 1 — Authentication & User Setup
+
+Register
+Login
+JWT authentication
+Protected routes
+
+
+Phase 2 — Product & Inventory Management
+
+Product model
+Add product
+Update product
+Delete product
+Get all products
+Search products
+Low-stock tracking
+
+
+Phase 3 — Customer Management
+
+Add customer
+Get customers
+Update customer
+Delete customer
+
+
+Phase 4 — Billing System 🔥
+This is the main part.
+
+Create invoice/bill
+Add multiple products to a bill
+Calculate subtotal
+Calculate total amount
+Automatically reduce product stock
+Prevent billing when stock is insufficient
+Store customer details with the invoice
+
+
+Phase 5 — Sales & Dashboard
+
+Sales history
+Get single invoice
+Dashboard statistics:
+Total products
+Total customers
+Total sales
+Low-stock products
+Recent invoices
+
+
+Phase 6 — Frontend Integration 🎨
+We'll build:
+
+Login/Register pages
+Dashboard
+Product management
+Customer management
+Create bill screen
+Invoice history
+Low-stock section
