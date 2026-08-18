@@ -85,6 +85,14 @@ Server will start at `http://localhost:5000/`
 - `PUT /api/cart/:id` – Update cart item
 - `DELETE /api/cart/:id` – Remove item from cart
 
+### 🛒 Cagegory Routes
+
+- `POST /api/categories` – Addcategories (admin only)
+- `GET /api/categories` – Get all categories
+- `GET /api/categories/:id` – Get category by id
+- `PUT /api/categories/:id` – Update category by id
+- `DELETE /api/categories/:id` – Remove item from category
+
 ## 🧪 Testing
 
 - Use **Postman / Thunder Client** for API testing
